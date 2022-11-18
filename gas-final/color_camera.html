@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>tracking.js - color with camera</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/demo.css" />
+
+    <script src="../build/tracking.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"
+      integrity="sha512-WoO4Ih0CDOSLYafy22wZD/mcJ7k0ESLqtQsFa6zFKnEUrbtuGU+GkLtVhgt93xa2qewG5gKEC6CWlN8OaCTSVg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="assets/stats.min.js"></script>
+    <script src="assets/color_camera_gui.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #defaultCanvas0 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      #debugger {
+        position: absolute;
+        z-index: 1000;
+      }
+
+      #debugger > canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      #video {
+        visibility: hidden;
+      }
+
+      .hideDebugger .dg.ac,
+      .hideDebugger #debugger,
+      .hideDebugger #stats {
+        visibility: hidden;
+        z-index: -1;
+        pointer-events: none;
+      }
+      .wrapper,
+      img {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+      }
+    </style>
+    <script src="./libs/p5.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body>
+    <div class="wrapper"></div>
+    <section id="debugger">
+      <canvas></canvas>
+      <video
+        id="video"
+        width="600"
+        height="450"
+        playsinline
+        loop
+        muted
+        controls
+      ></video>
+    </section>
+  </body>
+</html>
